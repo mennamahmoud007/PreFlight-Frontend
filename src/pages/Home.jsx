@@ -33,7 +33,9 @@ function Home() {
                 <div className="home-container home-navbar-inner">
 
                     <Link to="/" className="home-logo">
-                        <span className="logo-mark">↗</span>
+                        <span className="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z" />
+                            </svg></span>
                         PRELIGHT
                     </Link>
 
@@ -334,7 +336,9 @@ function Home() {
                 <div className="home-container footer-inner">
 
                     <Link to="/" className="home-logo">
-                        <span className="logo-mark">↗</span>
+                        <span className="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z" />
+                            </svg></span>
                         PRELIGHT
                     </Link>
 

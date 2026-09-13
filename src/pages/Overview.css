@@ -1,0 +1,577 @@
+/* =========================
+   PAGE
+========================= */
+
+.overview-page {
+    min-height: calc(100vh - 64px);
+    background: #080d18;
+    color: #f4f7fb;
+}
+
+.overview-container {
+    width: min(1180px, calc(100% - 96px));
+    margin: 0 auto;
+    padding: 52px 0 70px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.overview-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+
+    padding-bottom: 42px;
+
+    border-bottom: 1px solid #202d42;
+}
+
+.overview-label {
+    margin: 0 0 14px;
+
+    color: #5da9ff;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.overview-header h1 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+}
+
+.overview-count {
+    margin: 15px 0 0;
+
+    color: #71829b;
+
+    font-size: 14px;
+}
+
+.overview-new-button,
+.empty-primary-button,
+.open-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    background: #5da9ff;
+    color: #080d18;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.overview-new-button {
+    min-height: 44px;
+    padding: 0 20px;
+
+    white-space: nowrap;
+}
+
+.overview-new-button:hover,
+.empty-primary-button:hover,
+.open-project-button:hover {
+    background: #8ccbff;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.overview-dashboard {
+    padding-top: 46px;
+}
+
+.readiness-section,
+.workspace-stats {
+    margin-bottom: 46px;
+}
+
+.section-heading {
+    margin-bottom: 14px;
+}
+
+.section-heading p,
+.section-heading-text {
+    margin: 0;
+
+    color: #5a6b84;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================
+   READINESS
+========================= */
+
+.readiness-card {
+    padding: 28px;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 10px;
+}
+
+.readiness-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.project-id {
+    margin: 0 0 9px;
+
+    color: #52637b;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+.readiness-top h2 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.readiness-score {
+    display: flex;
+    align-items: baseline;
+
+    white-space: nowrap;
+}
+
+.readiness-score strong {
+    color: #5da9ff;
+
+    font-size: 54px;
+    line-height: 0.9;
+    font-weight: 700;
+}
+
+.readiness-score span {
+    margin-left: 5px;
+
+    color: #5e718b;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   READINESS BOTTOM
+========================= */
+
+.readiness-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+
+    gap: 30px;
+
+    margin-top: 28px;
+}
+
+.readiness-status {
+    margin: 0 0 9px;
+
+    color: #65b4ff;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.readiness-bar {
+    height: 5px;
+
+    max-width: 600px;
+
+    background: #263650;
+
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.readiness-bar span {
+    display: block;
+    height: 100%;
+
+    background: #5da9ff;
+}
+
+.open-project-button {
+    min-height: 42px;
+    padding: 0 18px;
+}
+
+
+/* =========================
+   STAGES
+========================= */
+
+.readiness-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 6px;
+
+    margin-top: 26px;
+}
+
+.readiness-stage {
+    min-height: 60px;
+
+    padding: 9px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid #263650;
+    border-radius: 6px;
+
+    color: #4d5e76;
+}
+
+.stage-number {
+    margin-bottom: 7px;
+
+    font-size: 9px;
+}
+
+.readiness-stage > span:last-child {
+    font-size: 9px;
+    letter-spacing: 0.02em;
+}
+
+.readiness-stage.completed {
+    border-color: #315b83;
+    color: #6dbaff;
+}
+
+.readiness-stage.completed .stage-number {
+    color: #5da9ff;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.stat-card {
+    min-height: 145px;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 8px;
+}
+
+.stat-card strong {
+    color: #5da9ff;
+
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.stat-card span {
+    color: #60718a;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   EMPTY WORKSPACE
+========================= */
+
+.empty-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+
+    column-gap: 80px;
+    row-gap: 54px;
+
+    padding-top: 70px;
+}
+
+.empty-intro {
+    align-self: center;
+}
+
+.empty-intro h2 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: clamp(52px, 5vw, 70px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.empty-intro > p:not(.overview-label) {
+    max-width: 520px;
+
+    margin: 25px 0 30px;
+
+    color: #71829b;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.empty-primary-button {
+    min-height: 52px;
+    padding: 0 24px;
+}
+
+
+/* =========================
+   EMPTY WORKFLOW
+========================= */
+
+.empty-workflow {
+    padding: 24px;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 10px;
+}
+
+.empty-workflow-list {
+    margin-top: 20px;
+}
+
+.empty-workflow-item {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #1d2b41;
+}
+
+.empty-workflow-item:last-child {
+    border-bottom: 0;
+}
+
+.empty-workflow-item > span {
+    color: #5da9ff;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.empty-workflow-item strong {
+    display: block;
+
+    color: #e5edf7;
+
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+.empty-workflow-item p {
+    margin: 4px 0 0;
+
+    color: #60718a;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   EMPTY STATS
+========================= */
+
+.empty-stats {
+    grid-column: 1 / -1;
+
+    padding-top: 24px;
+
+    border-top: 1px solid #202d42;
+}
+
+.empty-stat-values {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 220px));
+
+    gap: 70px;
+
+    margin-top: 20px;
+}
+
+.empty-stat-values div {
+    display: flex;
+    flex-direction: column;
+}
+
+.empty-stat-values strong {
+    color: #5da9ff;
+
+    font-size: 46px;
+    line-height: 1;
+}
+
+.empty-stat-values span {
+    margin-top: 8px;
+
+    color: #60718a;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.overview-loading {
+    margin: 0;
+
+    color: #5a6b84;
+
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .overview-container {
+        width: min(100% - 56px, 760px);
+    }
+
+    .empty-workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-stats {
+        grid-column: auto;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .overview-container {
+        width: calc(100% - 36px);
+
+        padding-top: 34px;
+    }
+
+    .overview-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding-bottom: 30px;
+    }
+
+    .overview-header h1 {
+        font-size: 32px;
+    }
+
+    .overview-new-button {
+        width: 100%;
+    }
+
+    .readiness-card {
+        padding: 20px;
+    }
+
+    .readiness-top {
+        flex-direction: column;
+    }
+
+    .readiness-score strong {
+        font-size: 46px;
+    }
+
+    .readiness-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .open-project-button {
+        width: 100%;
+    }
+
+    .readiness-stages {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-workspace {
+        padding-top: 45px;
+    }
+
+    .empty-intro h2 {
+        font-size: 52px;
+    }
+
+    .empty-primary-button {
+        width: 100%;
+    }
+
+    .empty-stat-values {
+        gap: 35px;
+    }
+}

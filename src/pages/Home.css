@@ -52,10 +52,6 @@
 
     color: #F4F7FB;
     text-decoration: none;
-
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: 0.015em;
 }
 
 .logo-mark {
@@ -69,10 +65,12 @@
     background: #5DA9FF;
     color: #080D18;
 
-    border-radius: 7px;
+    border-radius: 8px;
+}
 
-    font-size: 18px;
-    font-weight: 900;
+.logo-mark svg {
+    width: 18px;
+    height: 18px;
 }
 
 .home-nav {
@@ -188,9 +186,10 @@
     margin: 0;
 
     font-size: clamp(82px, 5.2vw, 96px);
-    line-height: 0.88;
+    line-height: 0.99;
     letter-spacing: -0.06em;
     font-weight: 800;
+    margin-bottom: 24px;
 }
 
 .hero h1 span {

@@ -1,0 +1,1012 @@
+.home {
+    min-height: 100vh;
+    background: #080D18;
+    color: #F4F7FB;
+}
+
+.home *,
+.home *::before,
+.home *::after {
+    box-sizing: border-box;
+}
+
+.home-container {
+    width: min(1220px, calc(100% - 240px));
+
+    margin: 0 auto;
+}
+.home-navbar .home-container,
+.home-footer .home-container {
+    width: min(1680px, calc(100% - 96px));
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.home-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 72px;
+
+    border-bottom: 1px solid #202D42;
+
+    background: #080D18;
+}
+
+.home-navbar-inner {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #F4F7FB;
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #5DA9FF;
+    color: #080D18;
+
+    border-radius: 7px;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.home-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.home-nav a {
+    color: #8A98AC;
+    text-decoration: none;
+
+    font-size: 15px;
+}
+
+.home-nav a:hover {
+    color: #F4F7FB;
+}
+
+.home-nav-button {
+    padding: 11px 18px;
+
+    background: #5DA9FF;
+    color: #080D18 !important;
+
+    border-radius: 7px;
+
+    font-size: 13px !important;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.home-section {
+    border-bottom: 1px solid #202D42;
+}
+
+.section-label {
+    margin: 0 0 24px;
+
+    color: #5DA9FF;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section {
+    padding: 0;
+}
+
+.hero {
+    min-height: calc(100vh - 72px);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 0.95fr);
+    align-items: center;
+    gap: 72px;
+
+    padding-top: 72px;
+    padding-bottom: 78px;
+}
+
+
+/* WITH PROJECT */
+
+.hero.has-project .hero-content {
+    min-width: 0;
+}
+
+
+/* WITHOUT PROJECT */
+
+.hero.no-project {
+    grid-template-columns: 1fr;
+}
+
+.hero.no-project .hero-content {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.85fr);
+    column-gap: 110px;
+    align-items: center;
+}
+
+.hero.no-project .hero-main-copy {
+    grid-column: 1;
+}
+
+.hero.no-project .hero-support {
+    grid-column: 2;
+}
+
+
+/* HERO TEXT */
+
+.hero-main-copy {
+    min-width: 0;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(82px, 5.2vw, 96px);
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #5DA9FF;
+}
+
+.hero-support {
+    min-width: 0;
+}
+
+.hero-subtitle {
+    margin: 0 0 15px;
+
+    color: #8CCBFF;
+
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.hero-description {
+    max-width: 500px;
+    margin: 0 0 32px;
+
+    color: #71829B;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 60px;
+    padding: 0 34px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+}
+
+.primary-button {
+    background: #5DA9FF;
+    color: #080D18;
+}
+
+.secondary-button {
+    background: #162238;
+    border: 1px solid #243653;
+    color: #8A98AC;
+}
+
+.primary-button:hover {
+    background: #8CCBFF;
+}
+
+.secondary-button:hover {
+    color: #F4F7FB;
+}
+
+
+/* =========================
+   PROJECT PANEL
+========================= */
+
+.project-panel {
+    width: 100%;
+    max-width: 612px;
+
+    justify-self: end;
+
+    border: 1px solid #263650;
+    border-radius: 12px;
+
+    background: #0D1424;
+
+    overflow: hidden;
+}
+
+.panel-browser-bar {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0 22px;
+
+    border-bottom: 1px solid #263650;
+
+    background: #111B2D;
+}
+
+.panel-browser-bar span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #263650;
+}
+
+.panel-browser-bar small {
+    margin-left: 12px;
+
+    color: #52637B;
+
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+
+.project-panel-content {
+    padding: 25px 24px 24px;
+}
+
+.project-panel-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin-bottom: 20px;
+}
+
+.project-panel-header p,
+.project-status p {
+    margin: 0 0 8px;
+
+    color: #5A6B84;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+.project-panel-header strong {
+    color: #F4F7FB;
+
+    font-size: 20px;
+}
+
+.project-status {
+    text-align: right;
+}
+
+.project-status span {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border: 1px solid #265A8A;
+    border-radius: 5px;
+
+    color: #65B4FF;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.score-panel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+
+    background: #17243A;
+
+    border-radius: 8px;
+}
+
+.score-value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+
+    min-width: 84px;
+}
+
+.score-value strong {
+    color: #5DA9FF;
+
+    font-size: 52px;
+    line-height: 0.95;
+    font-weight: 700;
+}
+
+.score-value small {
+    margin: 0;
+
+    color: #5E718B;
+
+    font-size: 11px;
+}
+
+.score-info {
+    flex: 1;
+}
+
+.score-info > span {
+    display: block;
+    margin-bottom: 10px;
+
+    color: #53647C;
+
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+.score-line {
+    height: 5px;
+
+    background: #2B3B54;
+
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.score-line span {
+    display: block;
+    height: 100%;
+
+    background: #5DA9FF;
+}
+
+.score-info small {
+    display: block;
+    margin-top: 8px;
+
+    color: #5DA9FF;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   STAGES
+========================= */
+
+.project-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+
+    margin-top: 18px;
+}
+
+.project-stage {
+    min-height: 56px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 8px 9px;
+
+    border: 1px solid #263650;
+    border-radius: 5px;
+
+    color: #4D5E76;
+}
+
+.project-stage small {
+    font-size: 9px;
+}
+
+.project-stage span {
+    margin-top: 6px;
+
+    font-size: 9px;
+}
+
+.project-stage.completed {
+    color: #6DBAFF;
+    border-color: #315B83;
+}
+
+.project-stage.completed small {
+    color: #5DA9FF;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   PROBLEM
+========================= */
+
+.problem-section {
+    padding: 96px 0 92px;
+}
+
+.problem-heading {
+    max-width: 760px;
+}
+
+.problem-heading h2,
+.system-section h2,
+.ai-section h2,
+.final-cta h2 {
+    margin: 0;
+
+    font-size: clamp(48px, 4vw, 58px);
+    line-height: 0.99;
+    letter-spacing: -0.05em;
+}
+
+.problem-heading > p:last-child {
+    max-width: 650px;
+    margin: 24px 0 0;
+
+    color: #71829B;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    margin-top: 58px;
+}
+
+.insight-card {
+    min-height: 143px;
+
+    padding: 22px 24px;
+
+    background: #0D1424;
+
+    border: 1px solid #263650;
+    border-top: 2px solid #4F8FD8;
+    border-radius: 8px;
+}
+
+.insight-card span {
+    display: block;
+    margin-bottom: 20px;
+
+    color: #5DA9FF;
+
+    font-size: 11px;
+}
+
+.insight-card strong {
+    display: block;
+
+    color: #F4F7FB;
+
+    font-size: 16px;
+}
+
+.insight-card p {
+    margin: 12px 0 0;
+
+    color: #7D8CA1;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SYSTEM
+========================= */
+
+.system-section {
+    padding: 94px 0 92px;
+
+    background: #0D1424;
+}
+
+.workflow {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    margin-top: 68px;
+}
+
+.workflow::before {
+    content: '';
+
+    position: absolute;
+    top: 33px;
+    left: 7%;
+    right: 7%;
+
+    height: 1px;
+
+    background: #5DA9FF;
+}
+
+.workflow-step {
+    position: relative;
+
+    text-align: center;
+}
+
+.workflow-node {
+    width: 66px;
+    height: 66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    background: #17243A;
+
+    border: 1px solid #243B5C;
+    border-radius: 50%;
+}
+
+.workflow-node span {
+    width: 18px;
+    height: 18px;
+
+    background: #5DA9FF;
+
+    border-radius: 50%;
+}
+
+.workflow-step small {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #5DA9FF;
+
+    font-size: 11px;
+}
+
+.workflow-step strong {
+    display: block;
+
+    color: #F4F7FB;
+
+    font-size: 16px;
+}
+
+.workflow-step p {
+    margin: 9px auto 0;
+
+    color: #64748B;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   AI
+========================= */
+
+.ai-section {
+    padding: 94px 0 94px;
+}
+
+.ai-heading {
+    max-width: 700px;
+    margin: 0;
+}
+
+.ai-heading h2 {
+    margin-bottom: 24px;
+}
+
+.ai-heading > p:last-child {
+    max-width: 680px;
+
+    color: #718198;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.ai-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+
+    width: min(820px, 100%);
+
+    margin: 58px 0 0;
+}
+
+.ai-panel {
+    min-height: 360px;
+
+    padding: 24px;
+
+    border: 1px solid #263650;
+    border-radius: 8px;
+
+    background: #0D1424;
+}
+
+.ai-panel.prelight-ai {
+    border-top: 2px solid #5DA9FF;
+}
+
+.panel-label {
+    margin: 0 0 20px;
+
+    color: #60718A;
+
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
+.ai-panel > div {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+    margin-bottom: 12px;
+
+    border: 1px solid #1D2B41;
+    border-radius: 5px;
+
+    color: #718198;
+
+    font-size: 14px;
+}
+
+.prelight-ai > div {
+    background: #16243A;
+    color: #E5EDF7;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta {
+    padding: 100px 0 96px;
+
+    background: #0D1424;
+
+    text-align: center;
+}
+
+.final-cta .section-label {
+    margin-bottom: 22px;
+}
+
+.final-cta h2 {
+    margin-bottom: 24px;
+}
+
+.final-cta > .home-container > p:not(.section-label) {
+    max-width: 560px;
+    margin: 0 auto 38px;
+
+    color: #718198;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.final-cta .primary-button {
+    min-width: 300px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.home-footer {
+    min-height: 98px;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #202D42;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-inner > span {
+    color: #52637B;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+    .home-container {
+        width: min(1100px, calc(100% - 64px));
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(400px, 0.9fr);
+        gap: 50px;
+    }
+
+    .hero.no-project .hero-content {
+        column-gap: 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(72px, 7vw, 88px);
+    }
+
+    .project-panel {
+        max-width: 540px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .home-container {
+        width: min(100% - 40px, 680px);
+    }
+
+    .home-navbar {
+        height: 68px;
+    }
+
+    .home-nav {
+        gap: 16px;
+    }
+
+    .home-nav > a:first-child {
+        display: none;
+    }
+
+    .hero,
+    .hero.no-project {
+        min-height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 60px;
+
+        padding-top: 72px;
+        padding-bottom: 82px;
+    }
+
+    .hero.no-project .hero-content {
+        display: flex;
+        flex-direction: column;
+
+        gap: 45px;
+    }
+
+    .hero.no-project .hero-main-copy,
+    .hero.no-project .hero-support {
+        grid-column: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(64px, 13vw, 88px);
+    }
+
+    .hero-support {
+        max-width: 600px;
+    }
+
+    .project-panel {
+        max-width: 100%;
+    }
+
+    .insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .workflow {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .workflow::before {
+        display: none;
+    }
+
+    .ai-comparison {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .home-container {
+        width: calc(100% - 32px);
+    }
+
+    .home-logo {
+        font-size: 17px;
+    }
+
+    .home-nav-button {
+        padding: 10px 13px;
+        font-size: 11px !important;
+    }
+
+    .hero {
+        padding-top: 54px;
+        padding-bottom: 64px;
+    }
+
+    .hero h1 {
+        font-size: clamp(56px, 17vw, 74px);
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+    }
+
+    .hero-description,
+    .problem-heading > p:last-child,
+    .ai-heading > p:last-child,
+    .final-cta > .home-container > p:not(.section-label) {
+        font-size: 15px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    .project-panel-content {
+        padding: 18px;
+    }
+
+    .project-panel-header {
+        flex-direction: column;
+    }
+
+    .project-status {
+        text-align: left;
+    }
+
+    .score-panel {
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .score-value strong {
+        font-size: 42px;
+    }
+
+    .project-stages {
+        gap: 4px;
+    }
+
+    .project-stage {
+        padding: 6px;
+    }
+
+    .project-stage span {
+        font-size: 8px;
+    }
+
+    .problem-section,
+    .system-section,
+    .ai-section,
+    .final-cta {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .problem-heading h2,
+    .system-section h2,
+    .ai-section h2,
+    .final-cta h2 {
+        font-size: 42px;
+    }
+
+    .ai-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 14px;
+        padding: 22px 0;
+    }
+}

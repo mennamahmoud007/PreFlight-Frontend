@@ -1,0 +1,240 @@
+/* =========================
+   PAGE
+========================= */
+
+.workspace-page {
+    min-height: 100vh;
+
+    background: #080d18;
+    color: #f4f7fb;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.workspace-topbar {
+    min-height: 96px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding: 0 42px;
+
+    background: #0d1424;
+
+    border-bottom: 1px solid #263650;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.workspace-header {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+}
+
+.workspace-project-id {
+    margin: 0 0 8px;
+
+    color: #52637b;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+.workspace-project-title-row {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.workspace-project-title-row h1 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: 24px;
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.workspace-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 28px;
+
+    padding: 0 11px;
+
+    background: #122139;
+
+    border: 1px solid #315b83;
+    border-radius: 5px;
+
+    color: #6dbaff;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   STAGE NAV — RIGHT SIDE
+========================= */
+
+.workspace-stage-nav {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    padding-left: 20px;
+}
+
+.workspace-stage {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 38px;
+
+    padding: 0 11px;
+
+    color: #53647c;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.06em;
+
+    white-space: nowrap;
+}
+
+.workspace-stage-number {
+    color: #4d5e76;
+
+    font-size: 9px;
+}
+
+.workspace-stage.completed {
+    color: #6dbaff;
+}
+
+.workspace-stage.completed .workspace-stage-number {
+    color: #53c7a3;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.workspace-stage.current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    padding: 0 11px;
+
+    color: #6dbaff;
+
+    background: #16243a;
+
+    border: 1px solid #315b83;
+    border-radius: 6px;
+}
+
+.workspace-stage.current .workspace-stage-number {
+    color: #5da9ff;
+}
+
+.workspace-stage:not(:last-child)::after {
+    content: '';
+
+    position: absolute;
+
+    top: 50%;
+    right: -12px;
+
+    width: 20px;
+    height: 1px;
+
+    transform: translateY(-50%);
+
+    background: #263650;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.workspace-content {
+    width: min(900px, calc(100% - 96px));
+
+    margin: 0 auto;
+
+    padding: 48px 0 80px;
+}
+
+
+/* =========================
+   STAGE HEADING
+========================= */
+
+.workspace-stage-heading {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #5da9ff;
+}
+
+.workspace-stage-heading p {
+    margin: 0 0 12px;
+
+    color: #5da9ff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+.workspace-stage-heading h2 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: 30px;
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+    font-weight: 700;
+}
+

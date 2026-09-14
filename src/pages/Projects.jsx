@@ -14,6 +14,8 @@ function Projects() {
         fetchProjects();
     }, []);
 
+    //outside of useEffect to avoid infinite loop as we will use this function in other places as well
+    //like after deleting a project
     const fetchProjects = async () => {
         try {
             const response = await api.get('/projects');
@@ -46,9 +48,12 @@ function Projects() {
                 project.name,
                 project.industry,
                 project.target_audience,
+                project.description,
                 project.status,
             ]
+            // if any of the fields are null or undefined, we filter them out before joining
                 .filter(Boolean)
+            //convert all fields to lowercase and join them into a single string for searching
                 .join(' ')
                 .toLowerCase();
 
@@ -57,10 +62,6 @@ function Projects() {
     }, [projects, activeFilter, searchQuery]);
 
     const handleDelete = async () => {
-        if (!projectToDelete) {
-            return;
-        }
-
         try {
             await api.delete(`/projects/${projectToDelete.id}`);
 
@@ -458,7 +459,7 @@ function formatStatus(status) {
     }
 
     const labels = {
-        checked: 'CHECKING',
+        checking: 'CHECKING',
         analyzed: 'ANALYZED',
         'stress-tested': 'STRESS-TESTED',
         improving: 'IMPROVED',

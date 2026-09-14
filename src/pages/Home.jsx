@@ -544,7 +544,7 @@ function getScoreLabel(score) {
 function getCompletedStages(status) {
 
     const stages = {
-        checked: 1,
+        checking: 1,
         analyzed: 2,
         'stress-tested': 3,
         improving: 4,

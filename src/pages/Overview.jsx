@@ -402,7 +402,7 @@ function getAverageScore(projects) {
 
 function getCompletedStages(status) {
     const stages = {
-        checked: 1,
+        checking: 1,
         analyzed: 2,
         'stress-tested': 3,
         improving: 4,
@@ -419,7 +419,7 @@ function getReadinessLabel(project) {
     }
 
     const nextStage = {
-        checked: 'ANALYZE',
+        checking: 'ANALYZE',
         analyzed: 'STRESS-TEST',
         'stress-tested': 'IMPROVE',
         improving: 'PITCH',

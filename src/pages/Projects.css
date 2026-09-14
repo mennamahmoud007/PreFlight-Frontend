@@ -254,7 +254,7 @@
 
     color: #53647c;
 
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.12em;
@@ -288,11 +288,11 @@
 .project-number {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 
-    color: #52637b;
+    color: #5da9ff;
 
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 0.12em;
 }
 

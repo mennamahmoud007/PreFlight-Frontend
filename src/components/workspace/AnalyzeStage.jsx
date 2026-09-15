@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import api from '../../services/api';
 
-function AnalyzeStage({ project, onProjectUpdated}) {
+function AnalyzeStage({ project, onProjectUpdated, onStartStressTest}) {
 
     const [analysisState, setAnalysisState] = useState(
         project.analysis ? 'result' : 'ready'
@@ -375,13 +375,13 @@ function AnalyzeStage({ project, onProjectUpdated}) {
                 </section>
 
 
-                <button
-                    type="button"
-                    className="workspace-primary-button"
-                    disabled
-                >
-                    STRESS-TEST THIS IDEA →
-                </button>
+                    <button
+                        type="button"
+                        className="workspace-primary-button"
+                        onClick={onStartStressTest}
+                    >
+                        STRESS-TEST THIS IDEA →
+                    </button>
 
             </section>
         );

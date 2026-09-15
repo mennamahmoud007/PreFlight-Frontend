@@ -118,12 +118,16 @@ function ProjectWorkspace() {
                     <AnalyzeStage
                         project={project}
                         onProjectUpdated={handleProjectUpdated}
+                        onStartStressTest={() => setActiveStage(2)}
+
                     />
                 )}
 
                 {activeStage === 2 && (
                     <ChallengeStage
                         project={project}
+                        onProjectUpdated={handleProjectUpdated}
+
                     />
                 )}
 

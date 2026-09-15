@@ -5,6 +5,7 @@ import api from '../../services/api';
 function ChallengeStage({
     project,
     onProjectUpdated,
+    onStartImprove,
 }) {
 
     const existingStressTest =
@@ -328,13 +329,13 @@ function ChallengeStage({
                 </section>
 
 
-                <button
-                    type="button"
-                    className="workspace-primary-button"
-                    disabled
-                >
-                    IMPROVE THIS IDEA →
-                </button>
+                    <button
+                        type="button"
+                        className="workspace-primary-button"
+                        onClick={onStartImprove}
+                    >
+                        IMPROVE THIS IDEA →
+                    </button>
 
             </section>
         );

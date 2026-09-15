@@ -127,6 +127,8 @@ function ProjectWorkspace() {
                     <ChallengeStage
                         project={project}
                         onProjectUpdated={handleProjectUpdated}
+                        onStartImprove={() => setActiveStage(3)}
+
 
                     />
                 )}
@@ -134,6 +136,7 @@ function ProjectWorkspace() {
                 {activeStage === 3 && (
                     <ImproveStage
                         project={project}
+                        onProjectUpdated={handleProjectUpdated}
                     />
                 )}
 

@@ -29,6 +29,8 @@ function ProjectWorkspace() {
     const { id } = useParams();
 
     const [project, setProject] = useState(null);
+    const [activeStage, setActiveStage] = useState(null);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
@@ -37,7 +39,10 @@ function ProjectWorkspace() {
             try {
                 const response = await api.get(`/projects/${id}`);
 
-                setProject(response.data.data);
+                const projectData = response.data.data;
+
+                setProject(projectData);
+                setActiveStage(getCurrentStage(projectData.status));
             } catch (error) {
                 console.error('Failed to fetch project:', error);
                 setError('Failed to load project.');
@@ -71,49 +76,73 @@ function ProjectWorkspace() {
 
     const currentStage = getCurrentStage(project.status);
 
+    const handleStageChange = (stage) => {
+        if (stage <= currentStage) {
+            setActiveStage(stage);
+        }
+    };
+
+    const handleProjectUpdated = (updatedProject) => {
+        setProject(updatedProject);
+    };
+
     return (
         <div className="workspace-page">
+
             <header className="workspace-topbar">
 
-                <WorkspaceHeader project={project} />
+                <WorkspaceHeader
+                    project={project}
+                />
 
-                <WorkspaceProgress currentStage={currentStage} />
+                <WorkspaceProgress
+                    currentStage={currentStage}
+                    activeStage={activeStage}
+                    onStageChange={handleStageChange}
+                />
 
             </header>
 
+
             <main className="workspace-content">
-                {currentStage === 0 && (
+
+                {activeStage === 0 && (
                     <CheckStage
                         project={project}
-                        onProjectUpdated={setProject}
+                        onProjectUpdated={handleProjectUpdated}
+                        onStartAnalysis={() => setActiveStage(1)}
                     />
                 )}
 
-                {currentStage === 1 && (
+                {activeStage === 1 && (
                     <AnalyzeStage
                         project={project}
+                        onProjectUpdated={handleProjectUpdated}
                     />
                 )}
 
-                {currentStage === 2 && (
+                {activeStage === 2 && (
                     <ChallengeStage
                         project={project}
                     />
                 )}
 
-                {currentStage === 3 && (
+                {activeStage === 3 && (
                     <ImproveStage
                         project={project}
                     />
                 )}
 
-                {currentStage === 4 && (
+                {activeStage === 4 && (
                     <PitchStage
                         project={project}
                     />
                 )}
+
             </main>
+
         </div>
     );
 }
+
 export default ProjectWorkspace;

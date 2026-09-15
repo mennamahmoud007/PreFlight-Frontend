@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import api from '../../services/api';
-function CheckStage({ project, onProjectUpdated }) {
+function CheckStage({ project, onProjectUpdated, onStartAnalysis }) {
 
     const [isEditing, setIsEditing] = useState(false);
 
@@ -257,7 +257,11 @@ function CheckStage({ project, onProjectUpdated }) {
 
             <div className="check-action">
 
-                <button className="workspace-primary-button">
+                <button
+                    type="button"
+                    className="workspace-primary-button"
+                    onClick={onStartAnalysis}
+                >
                     RUN ANALYSIS →
                 </button>
 

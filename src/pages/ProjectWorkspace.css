@@ -129,14 +129,23 @@
 
     padding: 0 11px;
 
+    background: transparent;
+
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+
     color: #53647c;
 
+    font-family: inherit;
     font-size: 11px;
     font-weight: 600;
 
     letter-spacing: 0.06em;
 
     white-space: nowrap;
+
+    cursor: default;
 }
 
 .workspace-stage-number {
@@ -147,6 +156,16 @@
 
 .workspace-stage.completed {
     color: #6dbaff;
+    cursor: pointer;
+}
+.workspace-stage:disabled {
+    background: transparent;
+    opacity: 1;
+    color: #53647c;
+}
+
+.workspace-stage.completed:hover {
+    color: #8ccbff;
 }
 
 .workspace-stage.completed .workspace-stage-number {
@@ -711,22 +730,23 @@
 ========================= */
 
 @media (max-width: 1100px) {
+    .workspace-topbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 28px;
+    }
 
     .workspace-header {
-        align-items: flex-start;
-        flex-direction: column;
-
-        gap: 18px;
+        flex: none;
+        width: 100%;
     }
 
     .workspace-stage-nav {
         width: 100%;
-
+        padding-left: 0;
+        justify-content: flex-start;
         overflow-x: auto;
-    }
-
-    .workspace-content {
-        width: min(100% - 56px, 850px);
     }
 }
 
@@ -777,5 +797,878 @@
 
     .check-action > span {
         text-align: center;
+    }
+}
+/* =========================
+   ANALYZE STAGE
+========================= */
+
+.analyze-stage {
+    width: 100%;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.analyze-heading-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 32px;
+}
+
+.analyze-heading-row .workspace-stage-heading {
+    flex: 1;
+
+    margin-bottom: 0;
+}
+
+.analyze-stage > .workspace-stage-heading {
+    margin-bottom: 32px;
+}
+
+
+/*
+   Important:
+   The divider should NOT touch the heading.
+*/
+
+.analyze-heading-row .workspace-stage-heading,
+.analyze-stage > .workspace-stage-heading {
+    padding-bottom: 21px;
+
+    border-bottom: 2px solid #5da9ff;
+}
+
+.analyze-heading-row .workspace-stage-heading p,
+.analyze-stage > .workspace-stage-heading p {
+    margin-bottom: 13px;
+
+    font-size: 11px;
+}
+
+.analyze-heading-row .workspace-stage-heading h2,
+.analyze-stage > .workspace-stage-heading h2 {
+    font-size: 32px;
+    line-height: 1.05;
+}
+
+
+/* =========================
+   RUN AGAIN
+========================= */
+
+.analyze-secondary-button {
+    flex-shrink: 0;
+
+    min-height: 38px;
+
+    padding: 0 15px;
+
+    margin-top: 1px;
+
+    background: #111b2d;
+
+    border: 1px solid #34445a;
+    border-radius: 6px;
+
+    color: #8293ad;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+
+    cursor: pointer;
+}
+
+.analyze-secondary-button:hover {
+    color: #f4f7fb;
+    border-color: #5da9ff;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.analyze-score-card {
+    min-height: 128px;
+
+    display: grid;
+
+    grid-template-columns: 145px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 38px;
+
+    margin-bottom: 18px;
+
+    padding: 24px 26px;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 10px;
+}
+
+.analyze-score-value {
+    min-width: 0;
+}
+
+.analyze-card-label {
+    color: #60718a;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+.analyze-score {
+    margin-top: 8px;
+
+    color: #5da9ff;
+
+    font-size: 48px;
+    line-height: 0.92;
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+.analyze-score span {
+    margin-left: 5px;
+
+    color: #53647c;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 0;
+}
+
+.analyze-score-summary {
+    min-width: 0;
+}
+
+.analyze-score-bar {
+    width: 100%;
+    height: 5px;
+
+    overflow: hidden;
+
+    background: #263650;
+
+    border-radius: 999px;
+}
+
+.analyze-score-bar span {
+    display: block;
+
+    height: 100%;
+
+    background: #5da9ff;
+
+    border-radius: inherit;
+}
+
+.analyze-score-label {
+    display: inline-block;
+
+    margin-top: 9px;
+
+    padding: 4px 8px;
+
+    background: #16243a;
+
+    border: 1px solid #3d4c8d;
+    border-radius: 4px;
+
+    color: #8c88ff;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+}
+
+
+/* =========================
+   COMMON ANALYZE CARD
+========================= */
+
+.analyze-card {
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 10px;
+}
+
+.analyze-card-header {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: #111b2d;
+
+    border-bottom: 1px solid #263650;
+
+    color: #647793;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+.analyze-card-body {
+    padding: 22px 24px;
+}
+
+
+/* =========================
+   ANALYSIS MATRIX
+========================= */
+
+.analysis-matrix {
+    display: grid;
+
+    gap: 17px;
+
+    margin: 0;
+}
+
+.analysis-score-item {
+    display: grid;
+
+    grid-template-columns: 105px minmax(0, 1fr) 34px;
+
+    align-items: center;
+
+    gap: 17px;
+}
+
+.analysis-score-label {
+    color: #52637b;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+}
+
+.analysis-score-bar {
+    width: 100%;
+    height: 4px;
+
+    overflow: hidden;
+
+    background: #263650;
+
+    border-radius: 999px;
+}
+
+.analysis-score-bar span {
+    display: block;
+
+    height: 100%;
+
+    background: #5da9ff;
+
+    border-radius: inherit;
+}
+
+.analysis-score-value {
+    color: #6dbaff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* Feasibility */
+
+.analysis-score-item:nth-child(4)
+.analysis-score-bar span {
+    background: #53c7a3;
+}
+
+.analysis-score-item:nth-child(4)
+.analysis-score-value {
+    color: #53c7a3;
+}
+
+
+/* Differentiation */
+
+.analysis-score-item:nth-child(5)
+.analysis-score-bar span {
+    background: #8c88ff;
+}
+
+.analysis-score-item:nth-child(5)
+.analysis-score-value {
+    color: #8c88ff;
+}
+
+
+/* =========================
+   SIGNAL GRID
+========================= */
+
+.analyze-signal-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.analyze-signal-grid .analyze-card {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   LISTS
+========================= */
+
+.analyze-list {
+    display: grid;
+
+    gap: 12px;
+
+    margin: 0;
+}
+
+.analyze-list-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #b7c4d4;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+.analyze-list-item > span {
+    flex-shrink: 0;
+
+    width: 15px;
+
+    margin-top: 1px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.analyze-list-item p {
+    margin: 0;
+}
+
+.analyze-list-item.strength > span {
+    color: #53c7a3;
+}
+
+.analyze-list-item.weakness > span {
+    color: #d6a866;
+}
+
+
+/* =========================
+   RISK REGISTER
+========================= */
+
+.analyze-list-item.risk {
+    min-height: 42px;
+
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #1d2b41;
+}
+
+.analyze-list-item.risk:last-child {
+    border-bottom: none;
+}
+
+.risk-number {
+    width: 28px !important;
+
+    color: #52637b;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.risk-content {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    flex: 1;
+}
+
+.risk-level {
+    flex-shrink: 0;
+
+    min-width: 48px;
+
+    padding: 4px 6px;
+
+    background: #16243a;
+
+    border: 1px solid #3d4c8d;
+    border-radius: 4px;
+
+    color: #8c88ff;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    text-align: center;
+}
+
+.analyze-list-item.risk:first-child .risk-level {
+    background: #211419;
+
+    border-color: #61363c;
+
+    color: #e58a94;
+}
+
+.risk-content p {
+    margin: 0;
+
+    color: #b7c4d4;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.analyze-summary {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: #b7c4d4;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   READY STATE
+========================= */
+
+.analyze-description {
+    max-width: 680px;
+
+    margin: -7px 0 30px;
+
+    color: #71829b;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.analyze-ready-card {
+    width: min(700px, 100%);
+    min-height: 240px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+
+    padding: 38px 30px;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.analyze-ready-card .analyze-card-label {
+    margin-bottom: 17px;
+
+    color: #60718a;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+.analyze-ready-text {
+    max-width: 390px;
+
+    margin: 0 0 26px;
+
+    color: #8da0b8;
+
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.analyze-ready-text strong {
+    color: #f4f7fb;
+    font-weight: 700;
+}
+
+.analyze-ready-card .workspace-primary-button {
+    min-width: 195px;
+}
+
+/* =========================
+   LOADING STATE
+========================= */
+
+.analyze-loading-state {
+    width: min(460px, 100%);
+
+    margin: 40px auto 0;
+
+    text-align: center;
+}
+
+.analyze-loading-title {
+    margin-bottom: 24px;
+
+    color: #5da9ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================
+   LOADING BAR
+========================= */
+
+.analyze-loading-bar {
+    position: relative;
+
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+
+    background: #1d2b41;
+
+    border-radius: 999px;
+}
+
+.analyze-loading-bar span {
+    display: block;
+
+    width: 42%;
+    height: 100%;
+
+    background: #5da9ff;
+
+    border-radius: inherit;
+
+    animation: analyzeLoadingProgress 6s
+        cubic-bezier(0.4, 0, 0.6, 1)
+        infinite;
+}
+
+@keyframes analyzeLoadingProgress {
+
+    0% {
+        transform: translateX(-110%);
+    }
+
+    50% {
+        transform: translateX(90%);
+    }
+
+    100% {
+        transform: translateX(260%);
+    }
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.analyze-loading-subtitle {
+    margin-top: 28px;
+
+    color: #9aabc1;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   STEPS
+========================= */
+
+.analyze-loading-steps {
+    display: grid;
+
+    gap: 15px;
+
+    margin-top: 40px;
+
+    text-align: left;
+}
+
+.analyze-loading-step {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #52637b;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    transition:
+        color 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+/* Dot */
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 2px;
+
+    background: #16243a;
+
+    color: transparent;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Completed */
+
+.analyze-loading-step.completed {
+    color: #9cb0c8;
+}
+
+.analyze-loading-step.completed .step-dot {
+    width: 10px;
+    height: 10px;
+
+    background: #53c7a3;
+
+    color: #071610;
+
+    border-radius: 2px;
+}
+
+
+/* Current */
+
+.analyze-loading-step.current {
+    color: #9cb0c8;
+}
+
+.analyze-loading-step.current .step-dot {
+    background: #5da9ff;
+
+    transform: scale(1.15);
+
+    animation: loadingDotPulse 1s ease-in-out infinite;
+}
+
+
+/* Pending */
+
+.analyze-loading-step.pending {
+    color: #2b3950;
+
+    opacity: 0.7;
+}
+
+.analyze-loading-step.pending .step-dot {
+    background: #16243a;
+}
+
+
+@keyframes loadingDotPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   FINAL BUTTON
+========================= */
+
+.analyze-stage > .workspace-primary-button {
+    margin-top: 5px;
+}
+
+
+/* =========================
+   ANALYZE RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .analyze-heading-row {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .analyze-secondary-button {
+        align-self: flex-start;
+    }
+
+    .analyze-score-card {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .analyze-signal-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .analyze-ready-card {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .analyze-ready-card .workspace-primary-button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .analyze-loading-state {
+        width: calc(100% - 20px);
+
+        margin-top: 30px;
+    }
+
+    .analyze-loading-title {
+        font-size: 10px;
+    }
+
+    .analyze-loading-subtitle {
+        font-size: 12px;
+    }
+
+    .analyze-loading-steps {
+        margin-top: 32px;
+    }
+
+    .analyze-loading-steps div {
+        font-size: 13px;
+    }
+
+    .analyze-ready-card {
+        width: 100%;
+
+        min-height: 220px;
+
+        padding: 30px 20px;
+    }
+
+    .analyze-ready-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .analyze-score-card,
+    .analyze-card-body {
+        padding: 18px;
+    }
+
+    .analyze-loading {
+        padding: 24px 20px;
+    }
+
+    .analyze-description,
+    .analyze-ready-copy p {
+        font-size: 13px;
     }
 }

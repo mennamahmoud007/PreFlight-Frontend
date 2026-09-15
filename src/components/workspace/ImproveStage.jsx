@@ -5,12 +5,12 @@ import api from '../../services/api';
 function ImproveStage({
     project,
     onProjectUpdated,
+    onStartPitch,
 }) {
     const existingImprovements =
         project.improvements ?? [];
 
     const hasImprovements =
-        project.status === 'improving' &&
         existingImprovements.length > 0;
 
     const [improvementState, setImprovementState] = useState(
@@ -283,7 +283,7 @@ function ImproveStage({
                 <button
                     type="button"
                     className="workspace-primary-button"
-                    disabled
+                    onClick={onStartPitch}
                 >
                     BUILD MY PITCH →
                 </button>

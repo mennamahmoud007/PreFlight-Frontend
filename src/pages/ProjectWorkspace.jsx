@@ -137,12 +137,15 @@ function ProjectWorkspace() {
                     <ImproveStage
                         project={project}
                         onProjectUpdated={handleProjectUpdated}
+                        onStartPitch={() => setActiveStage(4)}
                     />
                 )}
 
                 {activeStage === 4 && (
                     <PitchStage
                         project={project}
+                        onProjectUpdated={handleProjectUpdated}
+
                     />
                 )}
 

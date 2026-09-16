@@ -10,6 +10,7 @@ import AnalyzeStage from '../components/workspace/AnalyzeStage';
 import ChallengeStage from '../components/workspace/ChallengeStage';
 import ImproveStage from '../components/workspace/ImproveStage';
 import PitchStage from '../components/workspace/PitchStage';
+import LaunchReadyStage from '../components/workspace/LaunchReadyStage';
 
 import './ProjectWorkspace.css';
 
@@ -23,6 +24,16 @@ function getCurrentStage(status) {
     };
 
     return stages[status] ?? 0;
+}
+function isPitchComplete(project) {
+    const sections = project.pitch_sections ?? [];
+
+    return (
+        sections.length === 8 &&
+        sections.every(
+            (section) => section.content?.trim()
+        )
+    );
 }
 
 function ProjectWorkspace() {
@@ -42,7 +53,9 @@ function ProjectWorkspace() {
                 const projectData = response.data.data;
 
                 setProject(projectData);
-                setActiveStage(getCurrentStage(projectData.status));
+                setActiveStage(
+                    isPitchComplete(projectData)? 5 : getCurrentStage(projectData.status)
+                );
             } catch (error) {
                 console.error('Failed to fetch project:', error);
                 setError('Failed to load project.');
@@ -74,7 +87,8 @@ function ProjectWorkspace() {
         );
     }
 
-    const currentStage = getCurrentStage(project.status);
+    const workflowStage = getCurrentStage(project.status);
+    const currentStage = isPitchComplete(project) ? 5 : workflowStage;
 
     const handleStageChange = (stage) => {
         if (stage <= currentStage) {
@@ -93,6 +107,7 @@ function ProjectWorkspace() {
 
                 <WorkspaceHeader
                     project={project}
+                    launchReady={currentStage === 5}
                 />
 
                 <WorkspaceProgress
@@ -145,7 +160,12 @@ function ProjectWorkspace() {
                     <PitchStage
                         project={project}
                         onProjectUpdated={handleProjectUpdated}
-
+                        onLaunchReady={() => setActiveStage(5)}
+                    />
+                )}
+                {activeStage === 5 && (
+                    <LaunchReadyStage
+                        project={project}
                     />
                 )}
 

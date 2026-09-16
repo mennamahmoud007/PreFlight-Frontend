@@ -1,4 +1,4 @@
-function WorkspaceHeader({ project }) {
+function WorkspaceHeader({ project, launchReady }) {
     const labels = {
         checking: 'CHECKING',
         analyzed: 'ANALYZING',
@@ -6,6 +6,7 @@ function WorkspaceHeader({ project }) {
         improving: 'IMPROVING',
         pitching: 'PITCHING',
     };
+    const statusLabel = launchReady ? 'LAUNCH READY' : labels[project.status];
 
     return (
         <header className="workspace-header">
@@ -21,8 +22,14 @@ function WorkspaceHeader({ project }) {
                         {project.name}
                     </h1>
 
-                    <span className="workspace-status">
-                        {labels[project.status]}
+                    <span
+                        className={`workspace-status ${
+                            launchReady
+                                ? 'launch-ready-status'
+                                : ''
+                        }`}
+                    >
+                        {statusLabel}
                     </span>
 
                 </div>

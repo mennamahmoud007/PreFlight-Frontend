@@ -2710,6 +2710,13 @@
 
     cursor: default;
 }
+.pitch-actions .pitch-launch-button:hover {
+    background: #1b2c47;
+
+    border-color: #5da9ff;
+
+    color: #5da9ff;
+}
 
 
 /* =========================
@@ -2768,5 +2775,407 @@
     .pitch-save-button,
     .pitch-launch-button {
         width: 100%;
+    }
+}
+/* =========================
+   LAUNCH READY
+========================= */
+
+.launch-ready-stage {
+    width: min(780px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding-bottom: 30px;
+}
+.launch-ready-status {
+    background: #102d27;
+    border-color: #27745f;
+    color: #62c5a4;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.launch-ready-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 54px;
+
+    text-align: center;
+}
+
+.launch-ready-accent {
+    width: 52px;
+    height: 2px;
+
+    margin-bottom: 20px;
+
+    background: #5da9ff;
+}
+
+.launch-ready-kicker {
+    margin: 0 0 14px;
+
+    color: #5da9ff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.launch-ready-heading h2 {
+    margin: 0;
+
+    color: #f4f7fb;
+
+    font-size: 50px;
+    line-height: 1.0;
+
+    letter-spacing: -0.055em;
+    font-weight: 800;
+}
+
+.launch-ready-heading h2 span {
+    color: #5da9ff;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.launch-score-card {
+    width: 310px;
+    height: 202px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 42px;
+
+    padding: 24px;
+
+    background: #0d1424;
+
+    border: 1px solid #263650;
+    border-top: 2px solid #5da9ff;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.launch-score-value {
+    color: #5da9ff;
+
+    font-size: 64px;
+    line-height: 0.9;
+
+    font-weight: 700;
+
+    letter-spacing: -0.05em;
+}
+
+.launch-score-out-of {
+    margin-top: 7px;
+
+    color: #60718a;
+
+    font-size: 15px;
+}
+
+.launch-score-label {
+    margin-top: 14px;
+
+    color: #60718a;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================
+   CHECKLIST
+========================= */
+
+.launch-checklist-card {
+    width: 100%;
+
+    margin-bottom: 34px;
+}
+
+.launch-checklist-card .analyze-card-header {
+    min-height: 52px;
+
+    padding: 0 24px;
+
+    font-size: 10px;
+}
+
+.launch-checklist {
+    display: grid;
+}
+
+.launch-checklist-item {
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 24px;
+
+    border-bottom: 1px solid #1d2b41;
+
+    color: #e5edf7;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.launch-checklist-item:last-child {
+    border-bottom: none;
+}
+
+.launch-check-icon {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.launch-check-icon.completed {
+    background: #102d27;
+
+    border: 1px solid #27745f;
+
+    color: #53c7a3;
+}
+
+.launch-check-icon.pending {
+    background: #16243a;
+
+    border: 1px solid #263650;
+
+    color: #53647c;
+}
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.launch-highlight-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 44px;
+}
+
+.launch-highlight-grid .analyze-card {
+    margin-bottom: 0;
+}
+
+.launch-highlight-grid .analyze-card-header {
+    min-height: 46px;
+
+    padding: 0 18px;
+    
+    font-size: 11px;
+    color: #5da9ff;
+}
+
+.launch-highlight-grid .analyze-card-body {
+    min-height: 110px;
+
+    padding: 20px;
+}
+
+.launch-highlight-text {
+    margin: 0;
+
+    color: #b7c4d4;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.launch-risk-header {
+    color: #e58a94 !important;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.launch-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================
+   VIEW PITCH
+========================= */
+
+.launch-view-button {
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    background: #5da9ff;
+
+    border: 1px solid #5da9ff;
+    border-radius: 6px;
+
+    color: #080d18;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    cursor: pointer;
+}
+
+.launch-view-button:hover {
+    background: #8ccbff;
+
+    border-color: #8ccbff;
+}
+
+
+/* =========================
+   START ANOTHER
+========================= */
+
+.launch-another-button {
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    background: #162238;
+
+    border: 1px solid #263650;
+    border-radius: 6px;
+
+    color: #8293ad;
+
+    font-family: inherit;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    cursor: pointer;
+}
+
+.launch-another-button:hover {
+    background: #1b2c47;
+
+    border-color: #5da9ff;
+
+    color: #8ccbff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .launch-ready-stage {
+        width: min(100% - 36px, 780px);
+    }
+
+    .launch-ready-heading h2 {
+        font-size: 44px;
+    }
+
+    .launch-score-card {
+        width: 280px;
+        height: 190px;
+    }
+
+    .launch-highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .launch-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .launch-actions button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .launch-ready-stage {
+        width: calc(100% - 28px);
+    }
+
+    .launch-ready-heading {
+        margin-bottom: 32px;
+    }
+
+    .launch-ready-heading h2 {
+        font-size: 36px;
+    }
+
+    .launch-score-card {
+        width: 240px;
+        height: 170px;
+    }
+
+    .launch-score-value {
+        font-size: 54px;
+    }
+
+    .launch-checklist-item {
+        min-height: 52px;
+
+        padding: 0 18px;
+
+        font-size: 13px;
     }
 }

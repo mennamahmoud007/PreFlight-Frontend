@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import api from '../../services/api';
 
 function PitchStage({
     project,
     onProjectUpdated,
+    onLaunchReady,
 }) {
-
+    const navigate = useNavigate();
     const existingSections =
         project.pitch_sections ?? [];
 
@@ -411,14 +413,16 @@ function PitchStage({
                 <button
                     type="button"
                     className="pitch-save-button"
+                    onClick={() => navigate('/projects')}
+
                 >
-                    SAVE PITCH
+                    SAVE & EXIT
                 </button>
 
                 <button
                     type="button"
                     className="pitch-launch-button"
-                    disabled
+                    onClick={onLaunchReady}
                 >
                     VIEW LAUNCH READINESS →
                 </button>

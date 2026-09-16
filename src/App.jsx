@@ -5,6 +5,7 @@ import Overview from './pages/Overview.jsx';
 import Projects from './pages/Projects.jsx';
 import NewProject from './pages/NewProject.jsx';
 import ProjectWorkspace from './pages/ProjectWorkspace.jsx';
+import PresentationPreview from './pages/PresentationPreview.jsx';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/projects/new" element={<NewProject />} />
                   <Route path="/project/:id" element={<ProjectWorkspace />} />
+                  <Route path="/project/:id/presentation" element={<PresentationPreview />} />
               </Route>
             </Routes>
         </BrowserRouter>

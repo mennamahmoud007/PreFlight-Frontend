@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router';
 
 function LaunchReadyStage({
     project,
-    onViewPitch,
 }) {
     const navigate = useNavigate();
 
@@ -248,9 +247,9 @@ function LaunchReadyStage({
                 <button
                     type="button"
                     className="launch-view-button"
-                    onClick={onViewPitch}
+                     onClick={() => navigate(`/project/${project.id}/presentation`)}
                 >
-                    VIEW PITCH DECK →
+                    VIEW PRESENTATION →
                 </button>
 
                 <button

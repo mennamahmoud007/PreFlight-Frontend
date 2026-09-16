@@ -13,7 +13,7 @@ const industries = [
     'SaaS / B2B',
     'Consumer Social',
     'Marketplace',
-    'EdTech / Social',
+    'Social',
     'CleanTech',
     'Logistics',
     'Other',

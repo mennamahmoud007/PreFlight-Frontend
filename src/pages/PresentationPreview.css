@@ -1,7 +1,7 @@
 .presentation-page {
     min-height: 100%;
-    background: #080d18;
-    color: #e8eef8;
+    background: var(--presentation-bg);
+    color: var(--presentation-text);
     padding: 24px 28px 36px;
 }
 
@@ -15,18 +15,22 @@
 
 .presentation-back-button {
     justify-self: start;
-    border: 1px solid #26344a;
-    background: #0d1424;
-    color: #8ccbf8;
+
+    border: 1px solid var(--presentation-line);
+    background: var(--presentation-surface);
+
+    color: var(--presentation-accent-soft);
+
     padding: 10px 14px;
     font: inherit;
     font-size: 11px;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
 }
 
 .presentation-back-button:hover {
-    border-color: #5da9ff;
+    border-color: var(--presentation-accent);
 }
 
 .presentation-project-info {
@@ -37,21 +41,21 @@
 }
 
 .presentation-project-label {
-    color: #5da9ff;
+    color: var(--presentation-accent);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.16em;
 }
 
 .presentation-project-name {
-    color: #dce7f7;
-    font-size: 14px;
+color: var(--presentation-text);  
+  font-size: 14px;
     font-weight: 600;
 }
 
 .presentation-slide-counter {
     justify-self: end;
-    color: #7d8ba1;
+    color: var(--presentation-muted);
     font-size: 12px;
     letter-spacing: 0.08em;
 }
@@ -64,9 +68,13 @@
 .presentation-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #0d1424;
-    border: 1px solid #26344a;
+
+    background: var(--presentation-surface);
+
+    border: 1px solid var(--presentation-line);
+
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
     overflow: hidden;
 }
 
@@ -82,12 +90,12 @@
     inset: 0;
     background-image:
         linear-gradient(
-            rgba(93, 169, 255, 0.035) 1px,
+            var(--presentation-grid) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(93, 169, 255, 0.035) 1px,
+            var(--presentation-grid) 1px,
             transparent 1px
         );
     background-size: 42px 42px;
@@ -102,7 +110,7 @@
 
 .presentation-cover-kicker,
 .presentation-slide-kicker {
-    color: #5da9ff;
+    color: var(--presentation-accent);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.18em;
@@ -110,7 +118,7 @@
 
 .presentation-cover-title {
     margin: 22px 0 16px;
-    color: #f2f6fc;
+    color: var(--presentation-text);
     font-size: clamp(38px, 5vw, 76px);
     line-height: 0.95;
     font-weight: 700;
@@ -119,7 +127,7 @@
 .presentation-cover-subtitle {
     max-width: 760px;
     margin: 0;
-    color: #aebbd0;
+    color: var(--presentation-muted);
     font-size: clamp(16px, 1.7vw, 24px);
     line-height: 1.5;
 }
@@ -128,9 +136,9 @@
     display: inline-block;
     margin-top: 34px;
     padding: 8px 12px;
-    border: 1px solid #31445e;
-    background: #101a2c;
-    color: #8ccbf8;
+    border: 1px solid var(--presentation-line);
+    background: var(--presentation-surface-alt);
+    color: var(--presentation-accent-soft);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -141,14 +149,14 @@
     position: absolute;
     right: 7%;
     bottom: 8%;
-    color: #304057;
+    color: var(--presentation-line);
     font-size: 72px;
     font-weight: 700;
 }
 
 .presentation-content-slide {
     padding: 7% 8%;
-    background: #0d1424;
+    background: var(--presentation-surface);
 }
 
 .presentation-content-slide-top {
@@ -158,7 +166,7 @@
 }
 
 .presentation-slide-section {
-    color: #52627a;
+    color: var(--presentation-muted);
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -179,7 +187,7 @@
 
 .presentation-content-title {
     margin: 0;
-    color: #f2f6fc;
+    color: var(--presentation-text);
     font-size: clamp(30px, 4vw, 58px);
     line-height: 1.05;
 }
@@ -188,13 +196,13 @@
     width: 64px;
     height: 2px;
     margin: 24px 0 28px;
-    background: #5da9ff;
+    background: var(--presentation-accent);
 }
 
 .presentation-content-text {
     max-width: 940px;
     margin: 0;
-    color: #b6c2d4;
+    color: var(--presentation-muted);
     line-height: 1.6;
     white-space: pre-wrap;
 }
@@ -203,7 +211,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0d1424;
+    background: var(--presentation-surface);
 }
 
 .presentation-thank-you-accent {
@@ -212,32 +220,38 @@
     top: 12%;
     width: 5px;
     height: 76%;
-    background: #5da9ff;
+    background: var(--presentation-accent);
+    z-index: 1;
 }
 
 .presentation-thank-you-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
 }
 
 .presentation-thank-you-title {
     margin: 20px 0 12px;
-    color: #f2f6fc;
-    font-size: clamp(42px, 6vw, 82px);
-    line-height: 1;
+    color: var(--presentation-text);
+    font-size: clamp(46px, 6vw, 82px);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -0.03em;
 }
 
 .presentation-thank-you-subtitle {
     margin: 0;
-    color: #9daac0;
-    font-size: 20px;
+    color: var(--presentation-muted);
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .presentation-thank-you-project {
-    margin-top: 30px;
-    color: #8ccbf8;
-    font-size: 12px;
+    margin-top: 28px;
+    color: var(--presentation-accent-soft);
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
 }
 
@@ -245,10 +259,13 @@
     position: absolute;
     right: 7%;
     bottom: 7%;
-    color: #42516a;
-    font-size: 12px;
+    margin: 0;
+    color: var(--presentation-line);
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    z-index: 2;
 }
 
 .presentation-controls {
@@ -260,9 +277,9 @@
 }
 
 .presentation-nav-button {
-    border: 1px solid #26344a;
-    background: #0d1424;
-    color: #b7c5d9;
+    border: 1px solid var(--presentation-line);
+    background: var(--presentation-surface);
+    color: var(--presentation-muted);
     padding: 11px 14px;
     font: inherit;
     font-size: 11px;
@@ -280,8 +297,8 @@
 }
 
 .presentation-nav-button:hover:not(:disabled) {
-    border-color: #5da9ff;
-    color: #8ccbf8;
+    border-color: var(--presentation-accent);
+    color: var(--presentation-accent-soft);
 }
 
 .presentation-nav-button:disabled {
@@ -300,15 +317,15 @@
     width: 7px;
     height: 7px;
     padding: 0;
-    border: 1px solid #43536c;
+    border: 1px solid var(--presentation-line);
     background: transparent;
     cursor: pointer;
 }
 
 .presentation-dot.active {
     width: 22px;
-    background: #5da9ff;
-    border-color: #5da9ff;
+    background: var(--presentation-accent);
+    border-color: var(--presentation-accent);
 }
 
 .presentation-footer {
@@ -320,7 +337,7 @@
 }
 
 .presentation-footer-note {
-    color: #55657d;
+    color: var(--presentation-muted);
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -335,15 +352,15 @@
     margin: 16px auto 0;
     padding: 0 24px;
 
-    background: #8c88ff;
+    background: var(--presentation-action);
 
-    border: 1px solid #8c88ff;
+    border: 1px solid var(--presentation-action);
+
     border-radius: 7px;
 
-    color: #080d18;
+    color: var(--presentation-action-text);
 
     font-family: inherit;
-
     font-size: 13px;
     font-weight: 700;
 
@@ -360,7 +377,7 @@
     min-height: 70vh;
     display: grid;
     place-items: center;
-    color: #8492a8;
+    color: var(--presentation-muted);
     font-size: 14px;
 }
 
@@ -398,4 +415,996 @@
         max-height: 55%;
         overflow: auto;
     }
+}
+/* =========================
+   MOTIFS
+========================= */
+
+.presentation-slide::after {
+    content: '';
+
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+.presentation-slide::before {
+    content: '';
+
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.motif-grid::after {
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            var(--presentation-grid) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--presentation-grid) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   CHART
+========================= */
+
+.motif-chart::after {
+    right: 7%;
+    bottom: 7%;
+
+    width: 220px;
+    height: 120px;
+
+    border-bottom: 1px solid var(--presentation-accent);
+    border-left: 1px solid var(--presentation-line);
+
+    opacity: 0.18;
+
+    clip-path: polygon(
+        0 90%,
+        20% 65%,
+        35% 72%,
+        50% 40%,
+        65% 52%,
+        82% 20%,
+        100% 8%,
+        100% 100%,
+        0 100%
+    );
+}
+
+
+/* =========================
+   PULSE
+========================= */
+
+.motif-pulse::after {
+    right: 7%;
+    bottom: 10%;
+
+    width: 260px;
+    height: 80px;
+
+    border-bottom: 2px solid var(--presentation-accent);
+
+    opacity: 0.16;
+
+    clip-path: polygon(
+        0 58%,
+        18% 58%,
+        25% 25%,
+        31% 80%,
+        38% 45%,
+        45% 58%,
+        62% 58%,
+        69% 35%,
+        76% 70%,
+        83% 58%,
+        100% 58%
+    );
+}
+/* =========================
+   MEDICAL
+========================= */
+
+.motif-medical::after {
+    right: 7%;
+    bottom: 8%;
+
+    width: 150px;
+    height: 150px;
+
+    opacity: 0.14;
+
+    background:
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        center / 38px 150px no-repeat,
+
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        center / 150px 38px no-repeat;
+
+    border: 1px solid var(--presentation-line);
+
+    border-radius: 28px;
+}
+
+
+/* =========================
+   TERMINAL
+========================= */
+
+.motif-terminal::after {
+    right: 7%;
+    bottom: 8%;
+
+    width: 220px;
+    height: 135px;
+
+    border: 1px solid var(--presentation-line);
+
+    opacity: 0.16;
+
+    background:
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        18px 18px / 42px 2px no-repeat,
+
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        18px 30px / 68px 2px no-repeat,
+
+        linear-gradient(
+            var(--presentation-line),
+            var(--presentation-line)
+        )
+        18px 54px / 120px 1px no-repeat,
+
+        linear-gradient(
+            var(--presentation-line),
+            var(--presentation-line)
+        )
+        18px 78px / 92px 1px no-repeat;
+}
+
+
+/* =========================
+   ROUTE
+========================= */
+
+.motif-route::after {
+    right: 6%;
+    bottom: 9%;
+
+    width: 280px;
+    height: 110px;
+
+    border-top: 2px solid var(--presentation-accent);
+
+    border-radius: 50%;
+
+    opacity: 0.14;
+
+    transform: rotate(-8deg);
+}
+.presentation-cover-content,
+.presentation-content-slide-top,
+.presentation-content-slide-body,
+.presentation-thank-you-content,
+.presentation-thank-you-brand,
+.presentation-slide-number {
+    position: relative;
+    z-index: 1;
+}
+.presentation-slide::after {
+    z-index: 0;
+}
+/* =========================
+   NODES
+========================= */
+
+.motif-nodes::after {
+    right: 6%;
+    top: 18%;
+
+    width: 220px;
+    height: 160px;
+
+    opacity: 0.2;
+
+    background:
+        radial-gradient(
+            circle at 18% 72%,
+            var(--presentation-accent) 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 46% 34%,
+            var(--presentation-accent) 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 76% 58%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        linear-gradient(
+            25deg,
+            transparent 48.8%,
+            var(--presentation-line) 49%,
+            var(--presentation-line) 50%,
+            transparent 50.2%
+        ),
+        linear-gradient(
+            -28deg,
+            transparent 48.8%,
+            var(--presentation-line) 49%,
+            var(--presentation-line) 50%,
+            transparent 50.2%
+        );
+}
+
+
+/* =========================
+   BLOCKS
+========================= */
+
+.motif-blocks::after {
+    right: 6%;
+    bottom: 7%;
+
+    width: 240px;
+    height: 150px;
+
+    opacity: 0.16;
+
+    background:
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        0 56px / 58px 58px no-repeat,
+
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        72px 18px / 58px 96px no-repeat,
+
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        144px 0 / 58px 114px no-repeat,
+
+        linear-gradient(
+            var(--presentation-line),
+            var(--presentation-line)
+        )
+        0 118px / 202px 1px no-repeat;
+}
+
+
+/* =========================
+   COLUMNS
+========================= */
+
+.motif-columns::after {
+    right: 7%;
+    bottom: 7%;
+
+    width: 210px;
+    height: 145px;
+
+    opacity: 0.17;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 72%,
+            transparent 72%
+        )
+        0 100% / 36px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 48%,
+            transparent 48%
+        )
+        52px 100% / 36px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 88%,
+            transparent 88%
+        )
+        104px 100% / 36px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 62%,
+            transparent 62%
+        )
+        156px 100% / 36px 100% no-repeat;
+}
+
+
+/* =========================
+   ORBIT
+========================= */
+
+.motif-orbit::after {
+    right: -10px;
+    bottom: -30px;
+
+    width: 280px;
+    height: 280px;
+
+    border: 1px solid var(--presentation-accent);
+    border-radius: 50%;
+
+    opacity: 0.16;
+
+    box-shadow:
+        0 0 0 24px transparent,
+        0 0 0 25px var(--presentation-line),
+        0 0 0 56px transparent,
+        0 0 0 57px var(--presentation-line);
+}
+
+
+/* =========================
+   NETWORK
+========================= */
+
+.motif-network::after {
+    right: 6%;
+    bottom: 8%;
+
+    width: 250px;
+    height: 170px;
+
+    opacity: 0.18;
+
+    background:
+        radial-gradient(
+            circle at 15% 70%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 45% 25%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 78% 52%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 88% 15%,
+            var(--presentation-accent) 0 4px,
+            transparent 5px
+        );
+}
+
+.motif-network::before {
+    content: '';
+
+    position: absolute;
+    right: 6%;
+    bottom: 8%;
+
+    width: 250px;
+    height: 170px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.15;
+
+    background:
+        linear-gradient(
+            25deg,
+            transparent 49.5%,
+            var(--presentation-line) 49.5%,
+            var(--presentation-line) 50.5%,
+            transparent 50.5%
+        ),
+        linear-gradient(
+            -15deg,
+            transparent 49.5%,
+            var(--presentation-line) 49.5%,
+            var(--presentation-line) 50.5%,
+            transparent 50.5%
+        );
+}
+
+/* =========================
+   CAMPUS
+========================= */
+
+.motif-campus::after {
+    right: 5%;
+    bottom: 6%;
+
+    width: 270px;
+    height: 165px;
+
+    border: 1px solid var(--presentation-line);
+
+    opacity: 0.16;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0 18%,
+            var(--presentation-line) 18% 19%,
+            transparent 19% 100%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 0 58%,
+            var(--presentation-line) 58% 59%,
+            transparent 59% 100%
+        );
+}
+
+.motif-campus::before {
+    content: '';
+
+    position: absolute;
+    right: 9%;
+    bottom: 13%;
+
+    width: 210px;
+    height: 70px;
+
+    border-top: 2px solid var(--presentation-accent);
+    border-radius: 50%;
+
+    opacity: 0.16;
+
+    transform: rotate(-10deg);
+}
+
+
+/* =========================
+   LEAF
+========================= */
+
+.motif-leaf::after {
+    right: 4%;
+    bottom: 2%;
+
+    width: 260px;
+    height: 210px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 100% 0 100% 0;
+
+    opacity: 0.14;
+
+    transform: rotate(-28deg);
+}
+
+.motif-leaf::before {
+    content: '';
+
+    position: absolute;
+    right: 9%;
+    bottom: 12%;
+
+    width: 205px;
+    height: 1px;
+
+    background: var(--presentation-accent);
+
+    opacity: 0.16;
+
+    transform: rotate(-28deg);
+}
+
+/* =========================
+   COVER STYLES
+========================= */
+
+.presentation-cover-slide {
+    background: var(--presentation-surface);
+}
+
+
+/* =========================
+   PRELIGHT
+========================= */
+
+.cover-prelight {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+
+/* =========================
+   EDITORIAL
+========================= */
+
+.cover-editorial {
+    background:
+        linear-gradient(
+            90deg,
+            var(--presentation-surface) 0 68%,
+            var(--presentation-surface-alt) 68% 100%
+        );
+}
+
+.cover-editorial::after {
+    right: -80px;
+    top: -80px;
+
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 50%;
+
+    opacity: 0.12;
+}
+
+
+/* =========================
+   DATA
+========================= */
+
+.cover-data {
+    background:
+        linear-gradient(
+            90deg,
+            var(--presentation-surface) 0 72%,
+            var(--presentation-surface-alt) 72% 100%
+        );
+}
+
+.cover-data::after {
+    right: 7%;
+    top: 15%;
+
+    width: 190px;
+    height: 190px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 50%;
+
+    opacity: 0.12;
+
+    box-shadow:
+        0 0 0 28px transparent,
+        0 0 0 29px var(--presentation-line),
+        0 0 0 62px transparent,
+        0 0 0 63px var(--presentation-line);
+}
+
+
+/* =========================
+   CLINICAL
+========================= */
+
+.cover-clinical {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-clinical::after {
+    right: 8%;
+    top: 18%;
+
+    width: 150px;
+    height: 150px;
+
+    border: 1px solid var(--presentation-line);
+    border-radius: 28px;
+
+    opacity: 0.18;
+
+    background:
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        center / 34px 150px no-repeat,
+
+        linear-gradient(
+            var(--presentation-accent),
+            var(--presentation-accent)
+        )
+        center / 150px 34px no-repeat;
+}
+
+.cover-clinical::before {
+    content: '';
+
+    position: absolute;
+
+    right: 5%;
+    bottom: 10%;
+
+    width: 280px;
+    height: 80px;
+
+    border-bottom: 2px solid var(--presentation-accent);
+
+    opacity: 0.13;
+
+    clip-path: polygon(
+        0 58%,
+        18% 58%,
+        25% 25%,
+        31% 80%,
+        38% 45%,
+        45% 58%,
+        62% 58%,
+        69% 35%,
+        76% 70%,
+        83% 58%,
+        100% 58%
+    );
+}
+
+
+/* =========================
+   HUMAN
+========================= */
+
+.cover-human {
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            var(--presentation-accent) 0 1px,
+            transparent 2px
+        ),
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-human::after {
+    right: 8%;
+    bottom: 8%;
+
+    width: 190px;
+    height: 190px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 50%;
+
+    opacity: 0.1;
+}
+
+
+/* =========================
+   TERMINAL
+========================= */
+
+.cover-terminal {
+    background:
+        linear-gradient(
+            90deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-terminal::after {
+    content: '>_';
+
+    right: 7%;
+    bottom: 5%;
+
+    color: var(--presentation-accent);
+
+    font-family: monospace;
+    font-size: 110px;
+    font-weight: 700;
+
+    opacity: 0.08;
+}
+
+
+/* =========================
+   COMMERCE
+========================= */
+
+.cover-commerce {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-commerce::after {
+    right: 7%;
+    bottom: 7%;
+
+    width: 180px;
+    height: 180px;
+
+    border: 1px solid var(--presentation-accent);
+
+    opacity: 0.1;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================
+   BUSINESS
+========================= */
+
+.cover-business {
+    background:
+        linear-gradient(
+            90deg,
+            var(--presentation-surface) 0 65%,
+            var(--presentation-surface-alt) 65% 100%
+        );
+}
+
+.cover-business::after {
+    right: 7%;
+    bottom: 7%;
+
+    width: 160px;
+    height: 160px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 78%,
+            transparent 78%
+        )
+        0 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 52%,
+            transparent 52%
+        )
+        50px 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            var(--presentation-accent) 0 91%,
+            transparent 91%
+        )
+        100px 100% / 34px 100% no-repeat;
+
+    opacity: 0.1;
+}
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.cover-social {
+    background:
+        radial-gradient(
+            circle at 84% 24%,
+            var(--presentation-accent) 0 2px,
+            transparent 3px
+        ),
+        radial-gradient(
+            circle at 74% 58%,
+            var(--presentation-accent) 0 2px,
+            transparent 3px
+        ),
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-social::after {
+    right: -40px;
+    top: -40px;
+
+    width: 250px;
+    height: 250px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 50%;
+
+    opacity: 0.13;
+
+    box-shadow:
+        0 0 0 30px transparent,
+        0 0 0 31px var(--presentation-line);
+}
+
+
+/* =========================
+   EXCHANGE
+========================= */
+
+.cover-exchange {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-exchange::after {
+    right: 7%;
+    top: 22%;
+
+    width: 220px;
+    height: 140px;
+
+    opacity: 0.13;
+
+    background:
+        radial-gradient(
+            circle at 15% 60%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 50% 25%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            var(--presentation-accent) 0 5px,
+            transparent 6px
+        );
+}
+
+
+/* =========================
+   CAMPUS
+========================= */
+
+.cover-campus {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-campus::after {
+    right: 5%;
+    bottom: 5%;
+
+    width: 250px;
+    height: 160px;
+
+    border: 1px solid var(--presentation-line);
+
+    opacity: 0.12;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0 30%,
+            var(--presentation-line) 30% 31%,
+            transparent 31% 100%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 0 58%,
+            var(--presentation-line) 58% 59%,
+            transparent 59% 100%
+        );
+}
+
+
+/* =========================
+   ORGANIC
+========================= */
+
+.cover-organic {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-organic::after {
+    right: -20px;
+    bottom: -60px;
+
+    width: 300px;
+    height: 240px;
+
+    border: 1px solid var(--presentation-accent);
+
+    border-radius: 100% 0 100% 0;
+
+    opacity: 0.12;
+
+    transform: rotate(-25deg);
+}
+
+
+/* =========================
+   ROUTE
+========================= */
+
+.cover-route {
+    background:
+        linear-gradient(
+            135deg,
+            var(--presentation-surface),
+            var(--presentation-surface-alt)
+        );
+}
+
+.cover-route::after {
+    right: 5%;
+    bottom: 10%;
+
+    width: 290px;
+    height: 120px;
+
+    border-top: 2px solid var(--presentation-accent);
+
+    border-radius: 55%;
+
+    opacity: 0.14;
+
+    transform: rotate(-9deg);
 }

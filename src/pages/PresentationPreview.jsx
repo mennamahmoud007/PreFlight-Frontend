@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import api from '../services/api';
 
 import './PresentationPreview.css';
+import { getPresentationTheme } from '../constants/presentationThemes';
 
 const sectionTitles = {
     problem: 'THE PROBLEM',
@@ -165,6 +166,9 @@ function PresentationPreview() {
             },
         ];
     }, [project]);
+    const theme = project
+    ? getPresentationTheme(project.industry)
+    : null;
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -233,7 +237,22 @@ function PresentationPreview() {
     const slide = slides[currentSlide];
 
     return (
-        <div className="presentation-page">
+            <div
+                className="presentation-page"
+                style={{
+                    '--presentation-bg': theme.colors.background,
+                    '--presentation-surface': theme.colors.surface,
+                    '--presentation-surface-alt': theme.colors.surfaceAlt,
+                    '--presentation-accent': theme.colors.accent,
+                    '--presentation-accent-soft': theme.colors.accentSoft,
+                    '--presentation-text': theme.colors.text,
+                    '--presentation-muted': theme.colors.muted,
+                    '--presentation-line': theme.colors.line,
+                    '--presentation-grid': theme.grid,
+                    '--presentation-action': '#8C88FF',
+                    '--presentation-action-text': '#080D18',
+                }}
+            >
 
             <header className="presentation-topbar">
 
@@ -271,6 +290,7 @@ function PresentationPreview() {
 
                     <PresentationSlide
                         slide={slide}
+                        theme={theme}
                     />
 
                 </section>
@@ -347,12 +367,18 @@ function PresentationPreview() {
     );
 }
 
-function PresentationSlide({ slide }) {
+function PresentationSlide({ slide, theme }) {
 
     if (slide.type === 'cover') {
         return (
-            <article className="presentation-slide presentation-cover-slide">
-
+                <article
+                    className={`
+                        presentation-slide
+                        presentation-cover-slide
+                        motif-${theme.motif}
+                        cover-${theme.coverStyle}
+                    `}
+                >
                 <div className="presentation-slide-grid" />
 
                 <div className="presentation-cover-content">
@@ -385,8 +411,9 @@ function PresentationSlide({ slide }) {
 
     if (slide.type === 'thank-you') {
         return (
-            <article className="presentation-slide presentation-thank-you-slide">
-
+                <article
+                    className={`presentation-slide presentation-thank-you-slide motif-${theme.motif}`}
+                >
                 <div className="presentation-thank-you-accent" />
 
                 <div className="presentation-thank-you-content">
@@ -407,19 +434,13 @@ function PresentationSlide({ slide }) {
                         {slide.projectName}
                     </div>
 
-                </div>
-
-                <div className="presentation-thank-you-brand">
-                    PRELIGHT
-                </div>
-
+                <div className="presentation-thank-you-brand"></div></div>
             </article>
         );
     }
 
 return (
-    <article className="presentation-slide presentation-content-slide">
-
+    <article className={`presentation-slide presentation-content-slide motif-${theme.motif}`}>
         <div className="presentation-content-slide-top">
 
             <span className="presentation-slide-kicker">

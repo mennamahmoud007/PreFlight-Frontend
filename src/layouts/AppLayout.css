@@ -25,8 +25,6 @@
     font-size: 17px;
     font-weight: 800;
     letter-spacing: 0.04em;
-    margin-bottom: 36px;
-    flex-shrink: 0;
     color: #ffffff;
 }
 
@@ -39,24 +37,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-.logo-icon svg {
+.logo-icon .nav-icon {
     width: 18px;
     height: 18px;
 }
+
 .logo-link {
     text-decoration: none;
     color: inherit;
 }
+.runway-line {
+    height: 1px;
+    margin: 22px 4px 28px;
+    background: repeating-linear-gradient(
+        90deg,
+        #2a3b52 0 10px,
+        transparent 10px 18px
+    );
+}
 
 .navigation-title {
-    font-size: 11px;
-    letter-spacing: 1.6px;
+    font-size: 12px;
     color: #475569;
     margin: 0 12px 14px;
-    font-weight: 700;
-    flex-shrink: 0;
+    font-weight: 600;
 }
 
 .navigation {
@@ -77,7 +84,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .navigation a:hover {
@@ -88,13 +95,19 @@
 .navigation a.active {
     color: #ffffff;
     background: #131f37;
-    box-shadow: inset 2px 0 0 0 #5da9ff; 
+    box-shadow: inset 2px 0 0 0 #5da9ff;
+}
+
+.navigation a:focus-visible {
+    outline: 2px solid #5da9ff;
+    outline-offset: 2px;
 }
 
 .nav-icon {
     width: 18px;
     height: 18px;
-    color: #64748b;
+    color: #080D18;
+    flex-shrink: 0;
     transition: color 0.2s ease, stroke 0.2s ease;
 }
 
@@ -104,23 +117,25 @@
 
 .navigation a:hover .nav-icon,
 .navigation a.active .nav-icon {
-    color: #ffffff;
+    color: #5da9ff;
 }
 
 .navigation a:hover .nav-icon.stroke-icon,
 .navigation a.active .nav-icon.stroke-icon {
-    stroke: #ffffff;
+    stroke: #5da9ff;
 }
 
 .sidebar-footer {
     margin-top: auto;
     padding: 18px 12px 0;
     border-top: 1px solid #162234;
-    color: #475569;
-    font-size: 10px;
-    letter-spacing: 1.4px;
-    font-weight: 700;
-    flex-shrink: 0;
+}
+
+.footer-accent {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .main-content {

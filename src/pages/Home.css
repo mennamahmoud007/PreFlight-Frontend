@@ -52,6 +52,12 @@
 
     color: #F4F7FB;
     text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    transition: opacity 0.2s ease;
 }
 
 .logo-mark {
@@ -66,6 +72,7 @@
     color: #080D18;
 
     border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .logo-mark svg {
@@ -705,7 +712,7 @@
     background: #0D1424;
 }
 
-.ai-panel.prelight-ai {
+.ai-panel.PREFLIGHT-ai {
     border-top: 2px solid #5DA9FF;
 }
 
@@ -735,7 +742,7 @@
     font-size: 14px;
 }
 
-.prelight-ai > div {
+.PREFLIGHT-ai > div {
     background: #16243A;
     color: #E5EDF7;
 }
@@ -799,6 +806,13 @@
     color: #52637B;
 
     font-size: 11px;
+}
+.footer-logo {
+    opacity: 0.75;
+}
+
+.footer-logo:hover {
+    opacity: 1;
 }
 
 

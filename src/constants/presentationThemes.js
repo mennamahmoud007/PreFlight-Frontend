@@ -1,5 +1,5 @@
 const defaultTheme = {
-    name: 'Prelight Core',
+    name: 'PREFLIGHT Core',
 
     colors: {
         background: '#080D18',
@@ -15,7 +15,7 @@ const defaultTheme = {
     grid: 'rgba(93, 169, 255, 0.035)',
 
     motif: 'grid',
-    coverStyle: 'prelight',
+    coverStyle: 'PREFLIGHT',
 };
 
 

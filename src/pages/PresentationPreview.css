@@ -946,10 +946,10 @@ color: var(--presentation-text);
 
 
 /* =========================
-   PRELIGHT
+   PREFLIGHT
 ========================= */
 
-.cover-prelight {
+.cover-PREFLIGHT {
     background:
         linear-gradient(
             135deg,

@@ -366,7 +366,7 @@ color: var(--presentation-text);
 
     letter-spacing: 0.08em;
 
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 .presentation-download-button:disabled {
@@ -1407,4 +1407,25 @@ color: var(--presentation-text);
     opacity: 0.14;
 
     transform: rotate(-9deg);
+}
+.presentation-export-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(8, 13, 24, 0.92);
+
+    color: var(--presentation-accent);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
 }

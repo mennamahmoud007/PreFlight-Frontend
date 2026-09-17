@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import api from '../services/api';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 import './PresentationPreview.css';
 import { getPresentationTheme } from '../constants/presentationThemes';
@@ -61,6 +63,8 @@ function splitContent(content, maxCharacters = 750) {
 function PresentationPreview() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const slideRef = useRef(null);
+    const [downloading, setDownloading] = useState(false);
 
     const [project, setProject] = useState(null);
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -192,6 +196,70 @@ function PresentationPreview() {
         };
     }, [slides.length]);
 
+    const handleDownloadPDF = async () => {
+        if (!project || slides.length === 0 || downloading) {
+            return;
+        }
+
+        try {
+            setDownloading(true);
+
+            const pdf = new jsPDF({
+                orientation: 'landscape',
+                unit: 'in',
+                format: [13.333, 7.5],
+            });
+
+            const originalSlide = currentSlide;
+
+            for (let index = 0; index < slides.length; index++) {
+                const canvas = await exportSlide(index);
+
+                if (!canvas) {
+                    continue;
+                }
+
+                const imageData = canvas.toDataURL(
+                    'image/jpeg',
+                    0.98
+                );
+
+                if (index > 0) {
+                    pdf.addPage(
+                        [13.333, 7.5],
+                        'landscape'
+                    );
+                }
+
+                pdf.addImage(
+                    imageData,
+                    'JPEG',
+                    0,
+                    0,
+                    13.333,
+                    7.5
+                );
+            }
+
+            setCurrentSlide(originalSlide);
+
+            pdf.save(
+                `${project.name
+                    .trim()
+                    .replace(/\s+/g, '-')
+                    .toLowerCase()}-presentation.pdf`
+            );
+
+        } catch (error) {
+            console.error(
+                'Failed to generate PDF:',
+                error
+            );
+        } finally {
+            setDownloading(false);
+        }
+    };
+
     const goToNext = () => {
         setCurrentSlide((current) =>
             Math.min(current + 1, slides.length - 1)
@@ -235,6 +303,29 @@ function PresentationPreview() {
     }
 
     const slide = slides[currentSlide];
+    const exportSlide = async (slideIndex) => {
+        const element = slideRef.current;
+        if (!element) return null;
+
+        setCurrentSlide(slideIndex);
+
+        await new Promise((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(resolve));
+        });
+
+        await document.fonts.ready;
+
+        const canvas = await html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: theme.colors.background, 
+            logging: false,
+            windowWidth: window.innerWidth,   
+            windowHeight: window.innerHeight,
+        });
+
+        return canvas;
+    };
 
     return (
             <div
@@ -253,6 +344,11 @@ function PresentationPreview() {
                     '--presentation-action-text': '#080D18',
                 }}
             >
+            {downloading && (
+                <div className="presentation-export-overlay">
+                    GENERATING PDF...
+                </div>
+            )}
 
             <header className="presentation-topbar">
 
@@ -286,13 +382,14 @@ function PresentationPreview() {
 
             <main className="presentation-content">
 
-                <section className="presentation-frame">
-
+                <section
+                    ref={slideRef}
+                    className="presentation-frame"
+                >
                     <PresentationSlide
                         slide={slide}
                         theme={theme}
                     />
-
                 </section>
 
                 <div className="presentation-controls">
@@ -356,9 +453,12 @@ function PresentationPreview() {
                 <button
                     type="button"
                     className="presentation-download-button"
-                    disabled
+                    onClick={handleDownloadPDF}
+                    disabled={downloading}
                 >
-                    DOWNLOAD PDF 
+                    {downloading
+                        ? 'GENERATING PDF...'
+                        : 'DOWNLOAD PDF'}
                 </button>
 
             </main>
